@@ -96,6 +96,18 @@ func main() {
 			// permanently store identity file encrypted with chosen password
 			EncryptKeyAndWriteToFile(ed25519Priv, pw, "./raprivkey.key", comment)
 			fmt.Printf("Success! Found node ID: %v\n", nodeIDString)
+			
+			// also persists the nodeID string as nodeid.txt
+			file, err := os.OpenFile("./nodeid.txt", os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
+		    	if err != nil {
+		        	panic(err)
+		    	}
+		    	defer file.Close()
+		    	_, err = file.WriteString(nodeIDString)
+		    	if err != nil {
+		        	panic(err)
+    			}
+			
 			break
 		} else {
 			//fmt.Printf("Does not match requirements: %v\n", nodeIDString)
