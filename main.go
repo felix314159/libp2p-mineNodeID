@@ -61,7 +61,7 @@ func PubKeyToNodeID(pubKeyObject crypto.PubKey) (string, error) {
 
 func main() {
 	// define what to mine for, this string should be at the end of the created libp2p node ID (should be fast for strings smaller than 5 chars)
-	suffixOfInterest := "rara"
+	suffixOfInterest := "ra"
 	
 	pw := "supersecretrapw"
 	comment := "gophy key"
