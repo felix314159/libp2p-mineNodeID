@@ -94,7 +94,7 @@ func main() {
 		lastFourCharsOfNodeIDLowercase := strings.ToLower(nodeIDString[len(nodeIDString)-len(suffixOfInterest):])
 		if lastFourCharsOfNodeIDLowercase == strings.ToLower(suffixOfInterest) {
 			// permanently store identity file encrypted with chosen password
-			EncryptKeyAndWriteToFile(ed25519Priv, pw, "./privkey.key", comment)
+			EncryptKeyAndWriteToFile(ed25519Priv, pw, "./raprivkey.key", comment)
 			fmt.Printf("Success! Found node ID: %v\n", nodeIDString)
 			break
 		} else {
